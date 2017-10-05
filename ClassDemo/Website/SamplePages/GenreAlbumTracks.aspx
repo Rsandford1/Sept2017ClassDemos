@@ -19,22 +19,107 @@
             <asp:Repeater ID="AlbumTrackList" DataSource='<%#Eval("albums") %>' ItemType="Chinook.Data.DTOs.AlbumDTO" runat="server">
                 <ItemTemplate>
                     <h4>Albums:<%# string.Format("{0} ({1}) Tracks: {2}",
-                            Eval("title"), Eval("releaseyear"), Eval("Numberoftracks")) %></h4>
+                            Eval("title"), Eval("releaseyear"), Eval("Numberoftracks")) %>
+                    </h4>
+                    <%-- List View --%>
+                    <asp:ListView ID="TrackList" runat="server"
+                        DataSource='<%# Item.tracks %>'
+                        ItemType="Chinook.Data.POCOs.TrackPOCO">
+                        <LayoutTemplate>
+                            <table>
+                                <tr>
+                                    <th>Song</th>
+                                    <th>Length</th>
+                                </tr>
+                                <tr id="itemPlaceHolder" runat="server">
+                                    
+                                </tr>
+                            </table>
+                        </LayoutTemplate>
+                        
+                        <ItemTemplate>
+                            <tr>
+                                    <td>
+                                        <asp:Label  ID="Label1" runat="server" Text="<%#Item.song %>" Width="600px"></asp:Label>
+                                        
+                                    </td>
+                                     <td>
+                                         <asp:Label ID="Label2" runat="server" Text=" <%#Item.length %>"></asp:Label>
+                                       
+                                    </td>
+                                </tr>
+                        </ItemTemplate>
+                        <AlternatingItemTemplate>
+                            <tr style="background-color:aqua">
+                                    <td>
+                                        <asp:Label  ID="Label3" runat="server" Text="<%#Item.song %>" Width="600px"></asp:Label>
+                                        
+                                    </td>
+                                     <td>
+                                         <asp:Label ID="Label4" runat="server" Text=" <%#Item.length %>"></asp:Label>
+                                       
+                                    </td>
+                                </tr>
+                        </AlternatingItemTemplate>
+                        <EmptyDataTemplate>
+                            No Data Available At This Time
+                        </EmptyDataTemplate>
+                    </asp:ListView>
+
+
+
+
+
+                    <%-- GridView--%>
+                   <%-- <asp:GridView ID="TrackList" runat="server"
+                        DataSource='<%# Item.tracks %>'
+                        ItemType="Chinook.Data.POCOs.TrackPOCO" AutoGenerateColumns="False"
+                         GridLines="None">
+                        <Columns>
+                            <asp:TemplateField HeaderText="Song">
+                                <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
+                                <ItemStyle HorizontalAlign="Left"></ItemStyle>
+                                <ItemTemplate>
+                                    <asp:Label ID="Label1" runat="server" 
+                                        Text="<%#Item.song %>" Width="600px">
+
+                                    </asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Length">
+                                <ItemStyle HorizontalAlign="Right"></ItemStyle>
+                                <ItemTemplate>
+                                    <asp:Label ID="Label2" runat="server" 
+                                        Text="<%#Item.length %>" >
+
+                                    </asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            
+                        </Columns>
+                        <EmptyDataTemplate>
+                            No data available at this time
+                        </EmptyDataTemplate>
+                    </asp:GridView>--%>
+
+
                     <!-- Item.Tracks is the second way to refer to inner repeaters data sources-->
-                    <asp:Repeater ID="Repeater1" runat="server"
+                   
+                    <%--Nested Repeater --%>
+                     <%--<asp:Repeater ID="Repeater1" runat="server"
                         DataSource='<%#Item.tracks %>' ItemType="Chinook.Data.POCOs.TrackPOCO"> 
                         
                            <HeaderTemplate>
                                
                                 <table>
                                <tr>
-                                    <th>
+                                   <th>
                                         Song
-                                    </th>
+                                   </th>
                                    <th>
                                        Length
                                    </th>
-                                </tr>  
+                               </tr>  
                            </HeaderTemplate>
                             
                                  <itemTemplate>
@@ -55,7 +140,7 @@
                             
                         
 
-                    </asp:Repeater>
+                    </asp:Repeater>--%>
                 </ItemTemplate>
                 <SeparatorTemplate>
                     <hr style="height:3px; border:none; color:#000; background-color:#000"; />
