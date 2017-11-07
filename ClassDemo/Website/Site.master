@@ -98,6 +98,7 @@
                                 <asp:MenuItem Text="FirstLinqSample" NavigateUrl="~/SamplePages/FirstLinqSample.aspx"></asp:MenuItem>
                                 <asp:MenuItem Text="AlbumsByReleaseYearRange" NavigateUrl="~/SamplePages/AlbumsbyYearRelease.aspx"></asp:MenuItem>
                                 <asp:MenuItem Text="GenreAlbumTracks" NavigateUrl="~/SamplePages/GenreAlbumTracks.aspx"></asp:MenuItem>
+                                 <asp:MenuItem Text="UXManagePlaylist" NavigateUrl="~/SamplePages/ManagePlaylist.aspx"></asp:MenuItem>
                             </asp:MenuItem>
                             <asp:MenuItem Text="CRUD" NavigateUrl="~/SamplePages/TabbedCRUDReview.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="Security" NavigateUrl="~/Admin/Security/UserRoleAdmin.aspx"></asp:MenuItem>
