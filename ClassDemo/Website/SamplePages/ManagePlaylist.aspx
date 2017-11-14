@@ -48,6 +48,10 @@
         <asp:Button ID="AlbumFetch" runat="server" Text="Fetch" OnClick="AlbumFetch_Click" />
         <br /><br />
     </div>
+<!-- OnitemCommand is the method that will be activated on the link button press.
+                 -->
+    <!-- CommandArguement will send that value for
+                                                                                        processing when link button clicked -->
     <div class="col-sm-10">
         <asp:Label ID="Label5" runat="server" Text="Tracks"></asp:Label>&nbsp;&nbsp;
         <asp:Label ID="TracksBy" runat="server" ></asp:Label>&nbsp;&nbsp;
